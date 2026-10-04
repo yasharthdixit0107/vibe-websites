@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Athlete profile, VIP tier status, and preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User unique identifier matching auth.uid" },
+        "name": { "type": "string", "description": "Display name of the user" },
+        "email": { "type": "string", "description": "User email address" },
+        "photoURL": { "type": "string", "description": "Avatar image URL" },
+        "handle": { "type": "string", "description": "Public community handle" },
+        "tier": { "type": "string", "description": "VIP membership tier" },
+        "passId": { "type": "string", "description": "Digital pass code" },
+        "xpPoints": { "type": "number", "description": "Accumulated rewards XP points" },
+        "createdAt": { "type": "string", "description": "Account registration timestamp" }
+      },
+      "required": ["uid", "email"]
+    },
+    "UserOrder": {
+      "title": "UserOrder",
+      "description": "Customer purchase order and tracking details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Order identifier" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "orderNumber": { "type": "string", "description": "Human readable order number" },
+        "date": { "type": "string", "description": "Formatted order date" },
+        "status": { "type": "string", "enum": ["Processing", "Shipped", "Delivered", "Cancelled"], "description": "Current order fulfillment state" },
+        "subtotal": { "type": "number", "description": "Subtotal amount" },
+        "discount": { "type": "number", "description": "Discount applied" },
+        "shipping": { "type": "number", "description": "Shipping fee" },
+        "total": { "type": "number", "description": "Final billed total" },
+        "carrier": { "type": "string", "description": "Delivery logistics carrier" },
+        "trackingNumber": { "type": "string", "description": "Tracking code" },
+        "estimatedDelivery": { "type": "string", "description": "Estimated or actual delivery text" },
+        "shippingAddress": { "type": "string", "description": "Delivery street address" }
+      },
+      "required": ["userId", "orderNumber", "status", "total"]
+    },
+    "TasteLabFormula": {
+      "title": "TasteLabFormula",
+      "description": "User submitted custom molecular blend formula",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Formula ID" },
+        "userId": { "type": "string", "description": "Creator user ID" },
+        "userHandle": { "type": "string", "description": "Creator username" },
+        "blendName": { "type": "string", "description": "Name of custom blend" },
+        "baseProtein": { "type": "string", "description": "Protein matrix type" },
+        "sweetness": { "type": "number", "description": "Sweetness score 1 to 5" },
+        "tartness": { "type": "number", "description": "Tartness score 1 to 5" },
+        "creaminess": { "type": "number", "description": "Creaminess score 1 to 5" },
+        "cooling": { "type": "number", "description": "Cooling score 1 to 5" },
+        "aromaNotes": { "type": "string", "description": "Comma-separated aroma extract tags" },
+        "createdAt": { "type": "string", "description": "Creation ISO date" }
+      },
+      "required": ["userId", "blendName", "baseProtein"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "UserProfile" },
+      "description": "User profile records indexed by auth UID"
+    },
+    "/users/{userId}/orders/{orderId}": {
+      "schema": { "$ref": "UserOrder" },
+      "description": "Order records for an authenticated user"
+    },
+    "/formulas/{formulaId}": {
+      "schema": { "$ref": "TasteLabFormula" },
+      "description": "Community submitted taste lab formulas"
+    }
+  }
+}

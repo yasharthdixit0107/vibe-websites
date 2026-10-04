@@ -1,0 +1,6 @@
+{
+  "name": "Protein X | Kinetic Nutrition & Drops",
+  "description": "Next-gen sports nutrition engineered for kinetic athletes. Zero chalk, 100% flavor, streetwear drops, and community soundscapes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

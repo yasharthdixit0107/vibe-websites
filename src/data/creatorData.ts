@@ -1,0 +1,15 @@
+export const CREATOR_INFO = {
+  name: 'Yasharth Dixit',
+  role: 'Lead Architect & Full-Stack Creative Engineer',
+  email: 'yasharthdixit0107@gmail.com',
+  phone: '7505086399',
+  formattedPhone: '+91 7505086399',
+  whatsappUrl: 'https://wa.me/917505086399?text=Hi%20Yasharth%2C%20I%20saw%20your%20work%20on%20Protein%20X%20and%20would%20like%20to%20discuss%20a%20project%21',
+  telUrl: 'tel:+917505086399',
+  mailtoUrl: 'mailto:yasharthdixit0107@gmail.com?subject=Inquiry%20regarding%20Protein%20X%20Project%20//%20Client%20Direct&body=Hi%20Yasharth%2C%0A%0AI%20am%20reaching%20out%20regarding%20your%20work%20on%20the%20Protein%20X%20application.%20Let%27s%20connect%21',
+  trademarkId: 'TRADEMARK // YD-PROTX-2026-VERIFIED',
+  watermarkStamp: 'ORIGINAL CREATION WATERMARK • YASHARTH DIXIT',
+  digitalSignature: 'SIG // YASHARTH-DIXIT-2026-PROOF-OF-WORK-AUTH',
+  verificationDate: 'OCTOBER 2026',
+  copyrightStatement: 'Hand-crafted, engineered, and architected by Yasharth Dixit. Proof of original development.',
+};
